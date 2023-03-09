@@ -50,6 +50,7 @@ jobs:
         run: |
           dotnet nuget push ./nupkg/*.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
   release:
+    permissions: write-all
     needs: pack
     runs-on: ubuntu-latest
     name: Add artifacts to release
