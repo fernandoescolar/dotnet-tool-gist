@@ -61,11 +61,17 @@ jobs:
       - name: Get Version
         id: vars
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-      - uses: AButler/upload-release-assets@v2.0
+      - name: Upload release binaries
+        uses: alexellis/upload-assets@0.4.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
-          files: 'nupkg/*.nupkg'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ steps.vars.outputs.tag }}
+          asset_paths: '["./nupkg/*.nupkg"]'
+      # - uses: AButler/upload-release-assets@v2.0
+      #   with:
+      #     files: 'nupkg/*.nupkg'
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     release-tag: ${{ steps.vars.outputs.tag }}
   cleanup:
     needs: release
     runs-on: ubuntu-latest
