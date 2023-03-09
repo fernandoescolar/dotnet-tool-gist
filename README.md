@@ -1,8 +1,8 @@
-# dotnet-gist
+# dotnet-tool∫-gist
 
-dotnet-gist is a command-line tool for using GitHub Gists as a package repository. With dotnet-gist, you can easily install, restore and manage packages directly from the .NET command-line interface (CLI), using Gists as your package repository.
+dotnet-tool-gist is a command-line tool for using GitHub Gists as a package repository. With dotnet-tool-gist, you can easily install, restore and manage packages directly from the .NET command-line interface (CLI), using Gists as your package repository.
 
-- [dotnet-gist](#dotnet-gist)
+- [dotnet-tool∫-gist](#dotnet-tool-gist)
   - [Introduction](#introduction)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -30,27 +30,27 @@ However, it's important to note that GitHub Gist is not a full-fledged package m
 
 ## Installation
 
-To install dotnet-gist, you'll need to have the .NET Core SDK installed on your machine. If you don't have it already, you can download it from the official .NET website: https://dotnet.microsoft.com/download.
+To install dotnet-tool-gist, you'll need to have the .NET Core SDK installed on your machine. If you don't have it already, you can download it from the official .NET website: https://dotnet.microsoft.com/download.
 
-Once you have the .NET Core SDK installed, you can install dotnet-gist using the following command:
+Once you have the .NET Core SDK installed, you can install dotnet-tool-gist using the following command:
 
 ```bash
 dotnet tool install -g dotnet-tool-gist
 ```
 
-This will install the latest version of dotnet-gist globally on your machine, so you can use it from anywhere in your terminal.
+This will install the latest version of dotnet-tool-gist globally on your machine, so you can use it from anywhere in your terminal.
 
-To verify that dotnet-gist was insdotnettalled correctly, you can run the following command:
+To verify that dotnet-tool-gist was insdotnettalled correctly, you can run the following command:
 
 ```bash
 dotnet gist --version
 ```
 
-If everything was installed correctly, you should see the version number of dotnet-gist printed to the terminal.
+If everything was installed correctly, you should see the version number of dotnet-tool-gist printed to the terminal.
 
 ## Usage
 
-Once you have dotnet-gist installed, you can use it to manage your GitHub Gists directly from the .NET CLI. Here are some examples of how you can use dotnet-gist:
+Once you have dotnet-tool-gist installed, you can use it to manage your GitHub Gists directly from the .NET CLI. Here are some examples of how you can use dotnet-tool-gist:
 
 ### Add
 
@@ -138,4 +138,4 @@ There is an internal cache of the gist files that is used to avoid downloading t
 
 ## License
 
-dotnet-gist is licensed under the [MIT License](LICENSE).
+dotnet-tool-gist is licensed under the [MIT License](LICENSE).
