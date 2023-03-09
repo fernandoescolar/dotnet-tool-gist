@@ -5,6 +5,11 @@
     <RootNamespace>DotnetGist</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Author>Fernando Escolar</Author>
+    <Description></Description>
+    <PackageProjectUrl>https://github.com/fernandoescolar/dotnet-tool-gist</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageId>dotnet-tool-gist</PackageId>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-gist</ToolCommandName>
@@ -13,7 +18,9 @@
     <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
-  <ProjectExtensions>
-    <GistReference Id="53df9ac1bf71ff032c1b9284f6890530" Version="e6b5b41b82295481bd62fc18973069d2d9765bbd" FilePattern="*.cs" />
-  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="" />
+    <None Include="../LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <None Include="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>
