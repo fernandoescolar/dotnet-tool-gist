@@ -1,8 +1,13 @@
-# dotnet-tool∫-gist
+[![license](https://img.shields.io/badge/License-MIT-purple.svg)](../../LICENSE)
+![](https://img.shields.io/badge/dotnet-%20%E2%89%A57-blue)
+![github actions](https://github.com/fernandoescolar/dotnet-tool-gist/actions/workflows/release.yml/badge.svg)
+[![version](https://img.shields.io/nuget/vpre/dotnet-tool-gist)](https://www.nuget.org/packages/dotnet-tool-gist)
+
+# dotnet-tool-gist
 
 dotnet-tool-gist is a command-line tool for using GitHub Gists as a package repository. With dotnet-tool-gist, you can easily install, restore and manage packages directly from the .NET command-line interface (CLI), using Gists as your package repository.
 
-- [dotnet-tool∫-gist](#dotnet-tool-gist)
+- [dotnet-tool-gist](#dotnet-tool-gist)
   - [Introduction](#introduction)
   - [Installation](#installation)
   - [Usage](#usage)
