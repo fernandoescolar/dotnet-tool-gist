@@ -62,6 +62,11 @@ public abstract class ActionBase : IAction
             throw new Exception($"No files found for gist {gistReference.Id}:{gistReference.Version}");
         }
 
+        if (g.Gist.Description is not null)
+        {
+            Console.WriteLine($"{g.Gist.Description}");
+        }
+
         foreach (var file in g.Files)
         {
             if (file.Content is null)

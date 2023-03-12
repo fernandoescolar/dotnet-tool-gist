@@ -17,6 +17,13 @@ public class ListAction : ActionBase
         foreach (var gistReference in gistReferences)
         {
             Console.WriteLine($"{gistReference.Id}:{gistReference.Version}");
+
+            var gist = await GetGistAsync(gistReference.Id ?? string.Empty, gistReference.Version);
+            if (gist?.Description is not null)
+            {
+                Console.WriteLine($"{gist.Description}");
+            }
+
             var g = await GetGistFilesAsync(gistReference);
             foreach (var file in g.Files)
             {
