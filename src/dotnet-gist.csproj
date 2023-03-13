@@ -15,12 +15,16 @@
     <ToolCommandName>dotnet-gist</ToolCommandName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="" />
-    <None Include="../LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)" />
     <None Include="icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
+  <ProjectExtensions>
+    <GistReference Id="f476f19de5417502d40c5e089a3bba42" Version="17d3958d297e80fd44f80b62a1bbeead75513a4a" OutputPath="Infrastructure" />
+  </ProjectExtensions>
 </Project>

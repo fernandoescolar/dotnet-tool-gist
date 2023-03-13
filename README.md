@@ -117,7 +117,7 @@ dotnet gist [<project>] update <gist-id> [--version <version>]
 To update all references to the latest version:
 
 ```bash
-dotnet gist update --all
+dotnet gist update
 ```
 
 ### Restore
@@ -139,7 +139,7 @@ Each gist reference is added to the project as a `GistReference` item under `Pro
 - `FilePattern`: The file glob pattern used to add the files.
 - `OutputPath`: The output directory.
 
-There is an internal cache of the gist files that is used to avoid downloading the same gist multiple times. The cache is stored in the `gist` folder under the `obj` project folder.
+There is an internal cache of the gist files that is used to avoid downloading the same gist multiple times. The cache is stored in the `.gist` folder under the `obj` project folder.
 
 ## License
 

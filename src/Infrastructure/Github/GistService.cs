@@ -1,4 +1,4 @@
-namespace DotnetGist.Github;
+namespace DotnetGist.Infrastructure.Github;
 
 public class GistService : IGistService
 {

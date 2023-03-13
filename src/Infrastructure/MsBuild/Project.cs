@@ -1,4 +1,4 @@
-namespace DotnetGist.Msbuild;
+namespace DotnetGist.Infrastructure.MsBuild;
 
 public class Project
 {
