@@ -6,11 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Author>Fernando Escolar</Author>
-    <Description></Description>
+    <Description>A tool to manage Github Gist code snippets (like nuget packages) in your dotnet projects.</Description>
     <PackageProjectUrl>https://github.com/fernandoescolar/dotnet-tool-gist</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageId>dotnet-tool-gist</PackageId>
+    <PackageTags>tool;dotnet;gist;code snippets;github gist;package; package manager; reference</PackageTags>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-gist</ToolCommandName>
   </PropertyGroup>
