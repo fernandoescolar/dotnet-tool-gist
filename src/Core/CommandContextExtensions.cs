@@ -1,6 +1,8 @@
+using System.Text.RegularExpressions;
+
 namespace DotnetGist.Core;
 
-public static class CommandContextExtensions
+public static partial class CommandContextExtensions
 {
     public static IEnumerable<GistReferenceItem> GetProjectGists(this CommandContext ctx)
     {
@@ -19,18 +21,16 @@ public static class CommandContextExtensions
         ctx.Project.Save();
     }
 
-
     public static Task<Gist?> GetGistAsync(this CommandContext ctx, string gistId, string? version = null)
         => ctx.GistService.GetGistAsync(gistId, version);
 
-    public static async Task DownloadGistFilesAsync(this CommandContext ctx,GistReferenceItem gistReference)
+    public static async Task DownloadGistFilesAsync(this CommandContext ctx, GistReferenceItem gistReference)
     {
         var g = await ctx.GetGistFilesAsync(gistReference);
         if (!g.Files.Any())
         {
             throw new NoGistFilesFoundException(gistReference);
         }
-
 
         ctx.Console.GistDescription(g.Gist, ctx.GetWorkspacePath(gistReference));
         foreach (var file in g.Files)
@@ -44,7 +44,8 @@ public static class CommandContextExtensions
             var path = ctx.GetWorkspacePath(gistReference, file);
             Directory.CreateDirectory(Path.GetDirectoryName(path) ?? string.Empty);
             ctx.Console.DownloadingGistFile(file);
-            System.IO.File.WriteAllText(path, file.Content);
+            var updatedNsContent = UpdateNamespace(file.Content, gistReference.Namespace);
+            System.IO.File.WriteAllText(path, updatedNsContent);
         }
     }
 
@@ -103,4 +104,17 @@ public static class CommandContextExtensions
 
         return new GistRecord(gist, gistReference, files.Select(f => gist.Files[f]));
     }
+    private static string UpdateNamespace(string content, string? newNamespace)
+    {
+        if (string.IsNullOrEmpty(newNamespace)) return content;
+
+        return NamespaceDeclareRegex().Replace(content, m =>
+        {
+            string keyword = m.Groups[1].Value; // 'namespace' or 'Namespace'
+            return $"{keyword} {newNamespace}";
+        }, 1);
+    }
+
+    [GeneratedRegex(@"(?im)^\s*(namespace|Namespace)\s+([\w\.]+)", RegexOptions.None, "en-US")]
+    private static partial Regex NamespaceDeclareRegex();
 }
