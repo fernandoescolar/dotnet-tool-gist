@@ -34,7 +34,7 @@ Then, you need to add the gist reference to the project. You can do it by runnin
 
 ```bash
 cd DemoApi
-dotnet gist add fd0f87915264038fa463966428da2986 --out ./
+dotnet gist add fd0f87915264038fa463966428da2986 --out ./ --namespace DemoApi
 ```
 
 It will add a file called `RecordEndpoints.cs` to root directory of the project.

@@ -21,7 +21,7 @@ dotnet-tool-gist is a command-line tool for using GitHub Gists as a package repo
 
 ## Introduction
 
-There are several reasons why you might choose to use a package manager based on **GitHub Gist** over another one like *NuGet*:
+There are several reasons why you might choose to use a package manager based on **GitHub Gist** over another one like _NuGet_:
 
 - **Simplicity**: GitHub Gist is a simple way to share code snippets and small applications. It requires no setup, and you can create a gist with just a few clicks. This makes it a great option if you need to share code quickly and easily.
 
@@ -31,7 +31,7 @@ There are several reasons why you might choose to use a package manager based on
 
 - **Community**: GitHub Gist is part of the GitHub ecosystem, which has a large and active community of developers. This means that there are many resources available if you need help with your code, and you can easily find examples of how others have solved similar problems.
 
-However, it's important to note that GitHub Gist is not a full-fledged package manager like *NuGet*. It's best suited for sharing small code snippets or simple applications, rather than managing complex dependencies for larger projects. Ultimately, the choice of which package manager to use will depend on your specific needs and the requirements of your project.
+However, it's important to note that GitHub Gist is not a full-fledged package manager like _NuGet_. It's best suited for sharing small code snippets or simple applications, rather than managing complex dependencies for larger projects. Ultimately, the choice of which package manager to use will depend on your specific needs and the requirements of your project.
 
 ## Installation
 
@@ -62,7 +62,7 @@ Once you have dotnet-tool-gist installed, you can use it to manage your GitHub G
 Add a gist reference to a project.
 
 ```bash
-dotnet gist [<project>] add <gist-id> [--version <version>] [--file <file>] [--out <out>]
+dotnet gist [<project>] add <gist-id> [--version <version>] [--file <file>] [--out <out>] [--namespace <namespace>]
 ```
 
 - `<project>`: The project file to add the reference. If not specified, the current directory must be a project.
@@ -70,7 +70,8 @@ dotnet gist [<project>] add <gist-id> [--version <version>] [--file <file>] [--o
 - `<version>`: The gist version. If not specified, the latest version will be used.
 - `<file>`: The file glob pattern to add. If not specified, all files will be added.
 - `<out>`: The output directory. If not specified, the files will be added to the project directory: `gist/<gist-id>/<gist-version>`.
-
+- `<namespace>`: The custom Namespace.
+  
 Some examples:
 
 ```
@@ -78,6 +79,7 @@ dotnet gist add <gist-id>
 dotnet gist MyProject/MyProject.csproj add <gist-id>
 dotnet gist MyProject/MyProject.csproj add <gist-id> --version <version>
 dotnet gist MyProject/MyProject.csproj add <gist-id> --version <version> --file *.cs
+dotnet gist MyProject/MyProject.csproj add <gist-id> --namespace MyProject
 dotnet gist add <gist-id> --version <version> --file *.cs --out ReferencedCode/
 ```
 
@@ -138,6 +140,7 @@ Each gist reference is added to the project as a `GistReference` item under `Pro
 - `Version`: The gist version.
 - `FilePattern`: The file glob pattern used to add the files.
 - `OutputPath`: The output directory.
+- `Namespace`: The custom Namespace.
 
 There is an internal cache of the gist files that is used to avoid downloading the same gist multiple times. The cache is stored in the `.gist` folder under the `obj` project folder.
 

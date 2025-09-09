@@ -9,4 +9,6 @@ public class GistReferenceItem
     public string? FilePattern { get; set; }
 
     public string? OutputPath { get; set; }
+
+    public string? Namespace { get; set; }
 }

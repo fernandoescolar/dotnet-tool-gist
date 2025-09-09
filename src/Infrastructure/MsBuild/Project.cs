@@ -40,6 +40,7 @@ public class Project
                         item.Version = element.Attribute(nameof(GistReferenceItem.Version))?.Value;
                         item.FilePattern = element.Attribute(nameof(GistReferenceItem.FilePattern))?.Value;
                         item.OutputPath = element.Attribute(nameof(GistReferenceItem.OutputPath))?.Value;
+                        item.Namespace = element.Attribute(nameof(GistReferenceItem.Namespace))?.Value;
                         items.Add(item);
                     }
                 }
@@ -58,7 +59,7 @@ public class Project
             var itemGroups = _document.Value.Root?.Elements(ns + GistReferenceContainerName);
             if (itemGroups is not null)
             {
-                foreach(var i in itemGroups)
+                foreach (var i in itemGroups)
                 {
                     var elements = i.Elements(ns + GistReferenceName);
                     if (elements.Any())
@@ -94,6 +95,11 @@ public class Project
             if (item.OutputPath is not null)
             {
                 element.Add(new XAttribute(nameof(GistReferenceItem.OutputPath), item.OutputPath));
+            }
+
+            if (item.Namespace is not null)
+            {
+                element.Add(new XAttribute(nameof(GistReferenceItem.Namespace), item.Namespace));
             }
 
             itemGroup.Add(element);
